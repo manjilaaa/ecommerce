@@ -1,0 +1,160 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 15 Pro",
+      "price": 1500,
+      "category": "Mobiles",
+      "description": "Latest Apple iPhone with A17 Bionic chip",
+      "image": "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23",
+      "price": 1200,
+      "category": "Mobiles",
+      "description": "Flagship Samsung smartphone with Snapdragon processor",
+      "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "3",
+      "name": "Nike Air Max",
+      "price": 120,
+      "category": "Shoes",
+      "description": "Comfortable running shoes with modern design",
+      "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "4",
+      "name": "Levi's Jeans",
+      "price": 60,
+      "category": "Clothing",
+      "description": "Classic denim jeans for everyday wear",
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "5",
+      "name": "Dell XPS 13",
+      "price": 900,
+      "category": "Laptops",
+      "description": "Premium ultrabook with sleek design",
+      "image": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "6",
+      "name": "Sony WH-1000XM5",
+      "price": 350,
+      "category": "Headphones",
+      "description": "Noise-cancelling wireless headphones",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    {
+      "id": "7",
+      "name": "Smartphone",
+      "price": "599.9",
+      "category": "Mobiles",
+      "description": "High-end smartphone with advanced features.",
+      "image": "https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21hcnRwaG9uZXxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+      "id": "8",
+      "name": "Classic Red Pullover Hoodie",
+      "category": "Clothing",
+      "price": 11,
+      "description": "Elevate your casual wardrobe with our Classic Red Pullover Hoodie. Crafted with a soft cotton blend for ultimate comfort, this vibrant red hoodie features a kangaroo pocket, adjustable drawstring hood, and ribbed cuffs for a snug fit. The timeless design ensures easy pairing with jeans or joggers for a relaxed yet stylish look, making it a versatile addition to your everyday attire. (editado)",
+      "image": "https://i.imgur.com/1twoaDy.jpeg"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Manjila Thapa",
+      "email": "manjila@example.com",
+      "password": "123456"
+    },
+    {
+      "id": "2",
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "password"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "userId": 1,
+      "productId": 2,
+      "quantity": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1
+        },
+        {
+          "productId": 3,
+          "quantity": 2
+        }
+      ],
+      "total": 1740,
+      "status": "Pending"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "productId": 1,
+      "userId": 2,
+      "rating": 5,
+      "comment": "Amazing phone! Totally worth it."
+    },
+    {
+      "id": "2",
+      "productId": 3,
+      "userId": 1,
+      "rating": 4,
+      "comment": "Comfortable shoes, good for running."
+    },
+    {
+      "id": "85",
+      "productId": 1,
+      "user": "manjila",
+      "comment": "nice!!"
+    },
+    {
+      "id": "3",
+      "productId": 7,
+      "rating": 5,
+      "comment": "Great phone with a superb camera!"
+    },
+    {
+      "id": "15",
+      "productId": 6,
+      "user": "",
+      "comment": ""
+    },
+    {
+      "id": "35",
+      "productId": 6,
+      "user": "",
+      "comment": ""
+    },
+    {
+      "id": "eb84",
+      "productId": 2,
+      "user": "",
+      "comment": ""
+    },
+    {
+      "id": "013d",
+      "productId": 2,
+      "user": "",
+      "comment": ""
+    }
+  ]
+}
