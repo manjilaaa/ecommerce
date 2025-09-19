@@ -7,21 +7,21 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
        
         <div className="md:col-span-1">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-lime-600 to-amber-500 bg-clip-text text-transparent mb-4">
-            ShopMore
+          <h2 className="text-2xl text-white font-bold  bg-clip-text  mb-4">
+            ShopSphere
           </h2>
           <p className="text-gray-400 mb-4">
             Your one-stop destination for curated fashion and lifestyle products. 
             Experience quality, style, and exceptional service.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="bg-gray-800 p-3 rounded-full hover:bg-lime-600 transition-colors">
+            <a href="" className="bg-gray-800 p-3 rounded-full hover:bg-blue-600 transition-colors">
               <FaFacebookF className="w-4 h-4" />
             </a>
-            <a href="#" className="bg-gray-800 p-3 rounded-full hover:bg-amber-500 transition-colors">
+            <a href="" className="bg-gray-800 p-3 rounded-full hover:bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 transition-colors">
               <FaInstagram className="w-4 h-4" />
             </a>
-            <a href="#" className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 transition-colors">
+            <a href="" className="bg-gray-800 p-3 rounded-full hover:bg-blue-400 transition-colors">
               <FaTwitter className="w-4 h-4" />
             </a>
           </div>
@@ -30,11 +30,12 @@ function Footer() {
         <div className="md:col-span-1">
           <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Home</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Shop</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Collections</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">About Us</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Contact</a></li>
+            <li className="text-gray-400">Home</li>
+            <li className="text-gray-400">Shop</li>
+            <li className="text-gray-400">Collections</li>
+            <li className="text-gray-400">About Us</li>
+            <li className="text-gray-400">Contact</li>
+        
           </ul>
         </div>
 
@@ -42,11 +43,11 @@ function Footer() {
         <div className="md:col-span-1">
           <h3 className="text-lg font-semibold mb-4 text-white">Customer Service</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">FAQ</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Returns & Exchanges</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Shipping Information</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-lime-400 transition-colors">Terms & Conditions</a></li>
+            <li className="text-gray-400">FAQ</li>
+            <li className="text-gray-400">Returns & Exchanges</li>
+            <li className="text-gray-400">Shipping Information</li>
+            <li className="text-gray-400">Privacy Policy</li>
+            <li className="text-gray-400 ">Terms & Conditions</li>
           </ul>
         </div>
 
