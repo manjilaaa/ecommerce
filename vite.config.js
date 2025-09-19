@@ -6,7 +6,9 @@ import path from "path"
 export default defineConfig({
   plugins: [react(),
     tailwindcss(),
+
   ],
+  base:'/ecommerce/',
    resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
