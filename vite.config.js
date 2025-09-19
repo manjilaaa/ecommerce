@@ -8,7 +8,7 @@ export default defineConfig({
     tailwindcss(),
 
   ],
-  base:'/ecommerce',
+  base:'/ecommerce/',
    resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
