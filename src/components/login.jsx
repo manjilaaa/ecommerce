@@ -5,35 +5,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { toast, Toaster } from "sonner";  
+import { toast } from "sonner";  
 import bgImage from "../assets/login-bg.jpg"; 
+import { useUsers } from "../hooks/useUsers"; 
 
 const loginSchema = z.object({
   email: z.email("Invalid email address"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-const fetchUsers = async () => {
-  const res = await axios.get("http://localhost:5000/users");
-  return res.data;
-};
-
 function Login() {
   const navigate = useNavigate();
+  const { data: users, isLoading, isError } = useUsers(); 
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
-  });
-
-  const { data: users, isLoading, isError } = useQuery({
-    queryKey: ["users"],
-    queryFn: fetchUsers,
   });
 
   const onSubmit = (data) => {
@@ -50,7 +41,6 @@ function Login() {
       );
       toast("Login successful!", {
         description: `Welcome back, ${user.name}! 🎉`,
-        
       });
       navigate("/home");
     } else {
@@ -90,12 +80,9 @@ function Login() {
                 type="email"
                 placeholder="Enter your email"
                 {...register("email")}
-                
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.email.message}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
               )}
             </div>
 
@@ -107,28 +94,16 @@ function Login() {
                 type="password"
                 placeholder="Enter your password"
                 {...register("password")}
-                
               />
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.password.message}
-                </p>
+                <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
               )}
             </div>
 
-            <Button
-              type="submit"
-            variant="destructive"
-            >
-              Login
-            </Button>
+            <Button type="submit" variant="destructive">Login</Button>
           </form>
         )}
-
-        
       </div>
-
-      
     </div>
   );
 }

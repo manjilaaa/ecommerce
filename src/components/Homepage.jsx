@@ -40,10 +40,7 @@ const Homepage = () => {
                       alt={`Banner ${index + 1}`}
                       className="w-full h-full object-cover"
                     />
-                   
                     <div className="absolute inset-0 bg-black/40"></div>
-
-                   
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
                       <h1 className="text-5xl md:text-6xl font-bold mb-4">
                         Welcome to ShopSphere
@@ -51,19 +48,15 @@ const Homepage = () => {
                       <p className="text-xl md:text-2xl mb-8">
                         Your futuristic shopping experience starts here
                       </p>
-
                       <div className="bg-gradient-to-r from-red-600 to-pink-600 p-6 rounded-lg shadow-xl transform -rotate-3 mb-8">
                         <h2 className="text-3xl font-bold mb-2">BIG SALE</h2>
                         <p className="text-4xl font-extrabold mb-2">75% OFF</p>
-                   
                       </div>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-          
             <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full p-2">
               <ChevronLeft size={32} />
             </CarouselPrevious>
@@ -72,6 +65,7 @@ const Homepage = () => {
             </CarouselNext>
           </Carousel>
         </section>
+
 
         <Collections />
       </div>

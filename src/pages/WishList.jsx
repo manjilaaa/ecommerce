@@ -1,12 +1,44 @@
 import React from "react";
-import { useWishlist } from "@/context/WishlistContext";
 import { Link } from "react-router-dom";
 import { Heart, Trash2, Eye } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useWishlist } from "@/hooks/useWishlist"; // 
+import { toast } from "sonner";
 
 const WishlistPage = () => {
-  const { wishlistItems, removeFromWishlist } = useWishlist();
+  const { wishlistItems = [], isLoading, isError, removeItem } = useWishlist();
+
+  const handleRemove = (id) => {
+    removeItem.mutate(id, {
+      onSuccess: () => toast.success("Removed from wishlist"),
+      onError: () => toast.error("Failed to remove item"),
+    });
+  };
+
+  if (isLoading) {
+    return (
+      <>
+        <Navbar />
+        <div className="flex justify-center items-center py-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <>
+        <Navbar />
+        <div className="text-center py-20 text-red-500">
+          Failed to load wishlist. Please try again.
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -15,9 +47,9 @@ const WishlistPage = () => {
         <div className="text-center mb-12">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Your Wishlist</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            {wishlistItems.length === 0 
-              ? "Your favorite items will appear here" 
-              : `You have ${wishlistItems.length} item${wishlistItems.length !== 1 ? 's' : ''} in your wishlist`}
+            {wishlistItems.length === 0
+              ? "Your favorite items will appear here"
+              : `You have ${wishlistItems.length} item${wishlistItems.length !== 1 ? "s" : ""} in your wishlist`}
           </p>
         </div>
 
@@ -48,16 +80,14 @@ const WishlistPage = () => {
                 </div>
                 
                 <div className="p-6">
-                  <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                    {item.name || item.title}
-                  </h2>
+                  <h2 className="text-lg font-semibold text-gray-800 mb-2">{item.name || item.title}</h2>
                   <p className="text-gray-600 text-sm mb-4 capitalize">{item.category}</p>
                   
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-bold text-gray-900">${item.price}</span>
                     <div className="flex gap-2">
                       <button
-                        onClick={() => removeFromWishlist(item.id)}
+                        onClick={() => handleRemove(item.id)}
                         className="p-2 text-gray-400 hover:text-red-500 transition-colors"
                         aria-label="Remove from wishlist"
                       >

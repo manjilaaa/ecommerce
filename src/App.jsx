@@ -1,7 +1,7 @@
 import './App.css'
-import Footer from './components/Footer'
+
 import Home from './components/Homepage'
-import Navbar from './components/Navbar'
+
 import Login from './components/login'
 import Collections from './pages/Collections'
 import ProductPage from './pages/Product'
@@ -10,10 +10,14 @@ import ProductDetails from './pages/productDetails'
 import { Toaster } from './components/ui/sonner'
 import WishlistPage from './pages/WishList'
 import CartPage from './pages/Cart'
+import AdminPage from './pages/admin/Adminpage'
+import AddProduct from './pages/admin/AddProduct'
+import AdminReviews from './pages/admin/AdminReview'
+import EditProduct from './pages/admin/EditProduct'
 
 function App() {
   return (
-    <Router>
+    <Router basename='/ecommerce'>
       <div className="App">
        <Toaster richColors position="top-right" />
 
@@ -28,8 +32,14 @@ function App() {
 
           </Route>
            <Route path='/wishlist' element={<WishlistPage/>}></Route>
-          <Route path="/login" element={<Login />} />
+         
           <Route path='/cart' element={<CartPage/>}> </Route>
+          <Route path='/admin' element={<AdminPage/>}></Route>
+          <Route path='/admin/add-product' element={<AddProduct/>}></Route>
+          <Route path="/admin/reviews" element={<AdminReviews/>} />
+          <Route path="/admin/edit-product" element={<EditProduct />} />
+          <Route path="/admin/products/edit/:id" element={<EditProduct />} />
+
         </Routes>
         
        
