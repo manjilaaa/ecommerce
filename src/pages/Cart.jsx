@@ -159,10 +159,12 @@ const CartPage = () => {
                     <span className="text-gray-800">${(totalPrice * 1.08).toFixed(2)}</span>
                   </div>
                 </div>
-
+                    <Link to="/checkout" className="w-full">
                 <Button variant="destructive" className="w-full">
                   Proceed to Checkout
                 </Button>
+                </Link>
+
               </div>
             </div>
           </div>

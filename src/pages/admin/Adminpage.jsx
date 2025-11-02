@@ -1,77 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { PlusCircle, Edit3, ListChecks, MessageSquare } from "lucide-react";
+import { useProducts } from "@/hooks/useproducts";
+import { useOrders } from "@/hooks/useOrders";
 
 const AdminPage = () => {
+  const { data: products = [], isLoading: productsLoading } = useProducts();
+  const { orders = [], isLoading: ordersLoading } = useOrders();
+
+  const totalProducts = products.length;
+  const totalOrders = orders.length;
+
   return (
     <div className="flex min-h-screen bg-gray-100 font-sans">
-      {/* Sidebar */}
+     
       <aside className="w-64 bg-gray-800 text-white flex flex-col">
         <div className="text-2xl font-bold p-6 border-b border-gray-700">
           Admin Panel
         </div>
 
-        <div className="flex items-center space-x-3 p-3 rounded">
-          <PlusCircle size={20} />
-          <span>Add Product</span>
+        <div className="p-3">
+          <Link to="/admin/add-product" className="flex items-center space-x-2 text-white">
+            <PlusCircle size={20} /> <span>Add Product</span>
+          </Link>
         </div>
 
-        <div className="flex items-center space-x-3 p-3 rounded">
-          <Edit3 size={20} />
-          <span>Edit Product</span>
+        <div className="p-3">
+          <Link to="/admin/edit-product" className="flex items-center space-x-2 text-white">
+            <Edit3 size={20} /> <span>Edit Product</span>
+          </Link>
         </div>
 
-        <div className="flex items-center space-x-3 p-3 rounded">
-          <ListChecks size={20} />
-          <span>Orders</span>
+        <div className="p-3">
+          <Link to="/admin/orders" className="flex items-center space-x-2 text-white">
+            <ListChecks size={20} /> <span>Orders</span>
+          </Link>
         </div>
 
-        <div className="flex items-center space-x-3 p-3 rounded">
-          <MessageSquare size={20} />
-          <span>Reviews</span>
+        <div className="p-3">
+          <Link to="/admin/reviews" className="flex items-center space-x-2 text-white">
+            <MessageSquare size={20} /> <span>Reviews</span>
+          </Link>
         </div>
       </aside>
 
-   
+     
       <main className="flex-1 p-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Dashboard</h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <Link
-            to="/admin/add-product"
-            className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
-          >
-            <PlusCircle size={40} className="mb-4 text-blue-600" />
-            <span className="font-semibold text-lg">Add Product</span>
-          </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+         
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h2 className="text-lg font-semibold text-gray-600">Total Products</h2>
+            <p className="text-3xl font-bold text-gray-800 mt-2">
+              {productsLoading ? "..." : totalProducts}
+            </p>
+          </div>
 
-          
-          <Link
-            to="/admin/edit-product"
-            className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
-          >
-            <Edit3 size={40} className="mb-4 text-yellow-500" />
-            <span className="font-semibold text-lg">Edit Product</span>
-          </Link>
-
-        
-          <Link
-            to="/admin/orders"
-            className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
-          >
-            <ListChecks size={40} className="mb-4 text-green-500" />
-            <span className="font-semibold text-lg">Orders</span>
-          </Link>
-
-        
-          <Link
-            to="/admin/reviews"
-            className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
-          >
-            <MessageSquare size={40} className="mb-4 text-red-500" />
-            <span className="font-semibold text-lg">Reviews</span>
-          </Link>
+       
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h2 className="text-lg font-semibold text-gray-600">Total Orders</h2>
+            <p className="text-3xl font-bold text-gray-800 mt-2">
+              {ordersLoading ? "..." : totalOrders}
+            </p>
+            
+          </div>
         </div>
       </main>
     </div>

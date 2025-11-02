@@ -71,6 +71,14 @@
       "category": "Clothing",
       "image": "https://i.imgur.com/QkIa5tT.jpeg",
       "description": "Stylish black t-shirt featuring a monochrome mountain graphic, perfect for casual outings."
+    },
+    {
+      "id": "59a3",
+      "name": "iphone 17",
+      "price": 105,
+      "category": "Mobiles",
+      "image": "https://cdn.thewirecutter.com/wp-content/media/2025/09/BG-IPHONE-2048px_IPHONE-17-PRO-MAX_BACK.jpg?auto=webp&quality=75&width=1024",
+      "description": "Latest model"
     }
   ],
   "users": [
@@ -87,7 +95,17 @@
       "password": "password"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "2",
+      "name": "Samsung Galaxy S23",
+      "price": 1200,
+      "category": "Mobiles",
+      "description": "Flagship Samsung smartphone with Snapdragon processor",
+      "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=500&q=80",
+      "quantity": 1
+    }
+  ],
   "wishlist": [],
   "orders": [
     {
@@ -105,6 +123,50 @@
       ],
       "total": 1740,
       "status": "Pending"
+    },
+    {
+      "id": "b3f4",
+      "userId": 1,
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1
+        }
+      ],
+      "total": 1200,
+      "status": "Pending",
+      "payment": "COD",
+      "createdAt": "2025-11-02T06:07:10.813Z"
+    },
+    {
+      "id": "9b12",
+      "userId": "2",
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1
+        }
+      ],
+      "total": 1200,
+      "status": "Pending",
+      "payment": "COD",
+      "shippingAddress": "ilam",
+      "createdAt": "2025-11-02T07:26:05.080Z"
+    },
+    {
+      "id": "7afa",
+      "userId": "2",
+      "items": [
+        {
+          "productId": "1",
+          "quantity": 1
+        }
+      ],
+      "total": 1500,
+      "status": "Pending",
+      "payment": "COD",
+      "shippingAddress": "ilam",
+      "createdAt": "2025-11-02T07:26:31.394Z"
     }
   ],
   "reviews": [

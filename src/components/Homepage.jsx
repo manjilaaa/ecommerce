@@ -69,7 +69,7 @@ const Homepage = () => {
 
         <Collections />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

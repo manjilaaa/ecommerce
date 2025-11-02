@@ -28,7 +28,7 @@ export const useAddProduct = () => {
     mutationFn: (product) => addProduct(product),
     onSuccess: () => {
       toast.success("Product added successfully!");
-      queryClient.invalidateQueries(["products"]); 
+      queryClient.invalidateQueries(["products"]); // refresh product list
     },
     onError: () => {
       toast.error("Failed to add product.");
