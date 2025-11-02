@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PlusCircle, Edit3, ListChecks, MessageSquare } from "lucide-react";
 import { useProducts } from "@/hooks/useproducts";
 import { useOrders } from "@/hooks/useOrders";
+import DashboardChart from "./DashboardChart";
 
 const AdminPage = () => {
   const { data: products = [], isLoading: productsLoading } = useProducts();
@@ -65,6 +66,11 @@ const AdminPage = () => {
             </p>
             
           </div>
+          <div > 
+            <DashboardChart/>
+
+          </div>
+          
         </div>
       </main>
     </div>
