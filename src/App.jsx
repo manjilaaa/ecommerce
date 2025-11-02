@@ -17,7 +17,7 @@ import EditProduct from './pages/admin/EditProduct'
 
 function App() {
   return (
-    <Router basename='/ecommerce'>
+    <Router basename="/ecommerce">
       <div className="App">
        <Toaster richColors position="top-right" />
 

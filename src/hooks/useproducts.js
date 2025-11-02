@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { fetchProducts,fetchProduct } from "@/apis/productApi";
+import { useQuery,useQueryClient,useMutation } from "@tanstack/react-query";
+import { fetchProducts,fetchProduct,addProduct } from "@/apis/productApi";
+import { toast } from "sonner";
+
 
 export const useProducts = (options = {}) => {
   return useQuery({
@@ -16,4 +18,20 @@ export const useProduct = (id) => {
    
     
   });
-}
+
+};
+
+export const useAddProduct = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (product) => addProduct(product),
+    onSuccess: () => {
+      toast.success("Product added successfully!");
+      queryClient.invalidateQueries(["products"]); 
+    },
+    onError: () => {
+      toast.error("Failed to add product.");
+    },
+  });
+};

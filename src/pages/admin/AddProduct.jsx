@@ -1,15 +1,13 @@
 import React from "react";
-import { addProduct } from "@/apis/productApi";
-import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-
+import { useAddProduct } from "@/hooks/useproducts";
 
 const adminSchema = z.object({
   name: z.string().min(5, "Give the full product name"),
@@ -21,28 +19,21 @@ const adminSchema = z.object({
   category: z.enum(["clothing", "shoes", "Mobiles", "laptops", "Headphones"], {
     errorMap: () => ({ message: "Choose a valid category" }),
   }),
-  image: z.url("Invalid URL"),
+  image: z.string().url("Invalid URL"),
   description: z.string().min(10, "Add at least 10 characters in description"),
 });
 
 const AddProduct = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: zodResolver(adminSchema),
   });
 
-  const onSubmit = async (data) => {
-    try {
-      await addProduct({ ...data, price: Number(data.price) });
-      toast.success("Product added successfully!");
-      reset();
-    } catch {
-      toast.error("Failed to add product.");
-    }
+  const addProductMutation = useAddProduct();
+
+  const onSubmit = (data) => {
+    addProductMutation.mutate({ ...data, price: Number(data.price) }, {
+      onSuccess: () => reset(),
+    });
   };
 
   return (
@@ -59,54 +50,33 @@ const AddProduct = () => {
         >
           <h1 className="text-xl font-bold text-gray-800">Add Product</h1>
 
-       
           <div>
             <Input placeholder="Product Name" {...register("name")} />
-            {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name.message}</p>
-            )}
+            {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
           </div>
 
-        
           <div>
-            <Input
-              type="number"
-              placeholder="Price"
-              {...register("price")}
-            />
-            {errors.price && (
-              <p className="text-red-500 text-sm">{errors.price.message}</p>
-            )}
+            <Input type="number" placeholder="Price" {...register("price")} />
+            {errors.price && <p className="text-red-500 text-sm">{errors.price.message}</p>}
           </div>
 
-         
           <div>
             <Input placeholder="Category" {...register("category")} />
-            {errors.category && (
-              <p className="text-red-500 text-sm">{errors.category.message}</p>
-            )}
+            {errors.category && <p className="text-red-500 text-sm">{errors.category.message}</p>}
           </div>
 
-       
           <div>
             <Input placeholder="Image URL" {...register("image")} />
-            {errors.image && (
-              <p className="text-red-500 text-sm">{errors.image.message}</p>
-            )}
+            {errors.image && <p className="text-red-500 text-sm">{errors.image.message}</p>}
           </div>
 
-         
           <div>
             <Textarea placeholder="Description" {...register("description")} />
-            {errors.description && (
-              <p className="text-red-500 text-sm">
-                {errors.description.message}
-              </p>
-            )}
+            {errors.description && <p className="text-red-500 text-sm">{errors.description.message}</p>}
           </div>
 
-          <Button variant="destructive" type="submit" className="w-full">
-            Add Product
+          <Button type="submit" className="w-full" disabled={addProductMutation.isLoading}>
+            {addProductMutation.isLoading ? "Adding..." : "Add Product"}
           </Button>
         </form>
       </div>

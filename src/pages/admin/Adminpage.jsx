@@ -32,12 +32,12 @@ const AdminPage = () => {
         </div>
       </aside>
 
-      {/* Main Dashboard */}
+   
       <main className="flex-1 p-12">
         <h1 className="text-4xl font-bold text-gray-800 mb-8">Dashboard</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Add Product */}
+          
           <Link
             to="/admin/add-product"
             className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
@@ -46,7 +46,7 @@ const AdminPage = () => {
             <span className="font-semibold text-lg">Add Product</span>
           </Link>
 
-          {/* Edit Product */}
+          
           <Link
             to="/admin/edit-product"
             className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
@@ -55,7 +55,7 @@ const AdminPage = () => {
             <span className="font-semibold text-lg">Edit Product</span>
           </Link>
 
-          {/* Orders */}
+        
           <Link
             to="/admin/orders"
             className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
@@ -64,7 +64,7 @@ const AdminPage = () => {
             <span className="font-semibold text-lg">Orders</span>
           </Link>
 
-          {/* Reviews */}
+        
           <Link
             to="/admin/reviews"
             className="flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow hover:shadow-lg transition"

@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Edit3 } from "lucide-react";
+import { useProducts } from "@/hooks/useproducts"; 
 
 const EditProduct = () => {
-  const [products, setProducts] = useState([]);
+  const { data: products = [], isLoading, isError } = useProducts();
 
-  // Fetch product list
-  useEffect(() => {
-    fetch("http://localhost:5000/products") // change to your API endpoint
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error("Error fetching products:", err));
-  }, []);
+  if (isLoading) return <p className="p-12 text-gray-500">Loading products...</p>;
+  if (isError) return <p className="p-12 text-red-500">Error fetching products.</p>;
 
   return (
     <div className="p-12 min-h-screen bg-gray-100">
