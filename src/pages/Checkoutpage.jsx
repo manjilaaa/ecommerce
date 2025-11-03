@@ -51,7 +51,7 @@ const CheckoutPage = () => {
     <div className="relative">
       <Navbar />
 
-      {/* Back Button - top-left, responsive */}
+     
       <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 z-50">
         <Link
           to="/cart"
@@ -63,7 +63,7 @@ const CheckoutPage = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row max-w-7xl mx-auto py-12 gap-8 px-4">
-        {/* Left: Billing & Shipping */}
+       
         <div className="flex-1 bg-white p-10 mt-12 lg:mt-0 rounded-xl border border-gray-200 shadow-sm">
           <h2 className="text-2xl font-bold mb-6">Billing Details</h2>
           <p className="mb-2 font-medium">{user?.name}</p>
@@ -102,7 +102,7 @@ const CheckoutPage = () => {
           </Button>
         </div>
 
-        {/* Right: Order Summary */}
+      
         <div className="w-full lg:w-1/3 bg-white p-6 rounded-xl border border-gray-200 shadow-sm mt-12 lg:mt-0">
           <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
           {cartItems.map((item) => (

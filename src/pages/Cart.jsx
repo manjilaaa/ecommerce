@@ -72,7 +72,7 @@ const CartPage = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Cart Items */}
+           
             <div className="lg:col-span-2 space-y-6">
               {cartItems.map((item) => {
                 const price = item.price || 0;
@@ -136,7 +136,7 @@ const CartPage = () => {
               })}
             </div>
 
-            {/* Order Summary */}
+           
             <div className="lg:col-span-1">
               <div className="bg-white p-6 rounded-xl border border-gray-200 sticky top-28">
                 <h2 className="text-xl font-semibold text-gray-800 mb-6">Order Summary</h2>
