@@ -18,3 +18,32 @@ export const addProduct = async (product) => {
   return data;
 };
 
+
+export const deleteProduct = async (id) => {
+  const res = await fetch(`${BASE_URL}/products/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to delete product");
+  }
+
+  return true;
+};
+
+
+
+export const updateProduct = async (id, updatedData) => {
+  const res = await fetch(`${BASE_URL}/products/${id}`, {
+    method: "PUT", 
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updatedData),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to update product");
+  }
+
+  return await res.json();
+};
+

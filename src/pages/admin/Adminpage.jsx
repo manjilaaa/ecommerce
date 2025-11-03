@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { PlusCircle, Edit3, ListChecks, MessageSquare } from "lucide-react";
+import { PlusCircle, Edit3, ListChecks, MessageSquare,View } from "lucide-react";
 import { useProducts } from "@/hooks/useproducts";
 import { useOrders } from "@/hooks/useOrders";
 import DashboardChart from "./DashboardChart";
@@ -28,7 +28,7 @@ const AdminPage = () => {
 
         <div className="p-3">
           <Link to="/admin/edit-product" className="flex items-center space-x-2 text-white">
-            <Edit3 size={20} /> <span>Edit Product</span>
+            <View size={20} /> <span>View Products</span>
           </Link>
         </div>
 
