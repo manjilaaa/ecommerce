@@ -33,15 +33,12 @@ function App() {
   <Route path='/products/:id' element={<ProductDetails/>}></Route>
   <Route path='/wishlist' element={<WishlistPage/>}></Route>
   <Route path='/cart' element={<CartPage/>}></Route>
-  
- 
   <Route path='/admin' element={<AdminPage/>}></Route>
   <Route path='/admin/add-product' element={<AddProduct/>}></Route>
   <Route path="/admin/reviews" element={<AdminReviews/>} />
   <Route path="/admin/edit-product" element={<EditProduct />} />        
   <Route path="/admin/products/edit/:id" element={<EditProductForm />} />  
   <Route path="/admin/orders" element={<AdminOrdersPage/>} />
-
   <Route path="/checkout" element={<CheckoutPage userId={userId} />} />
 </Routes>
 

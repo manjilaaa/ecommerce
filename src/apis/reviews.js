@@ -1,21 +1,22 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 export const fetchReviews = async (productId) => {
   const { data } = await axios.get(
-    `${BASE_URL}/reviews?productId=${productId}`
+    `${API_URL}/reviews?productId=${productId}`
   );
   return data;
 };
 
 export const addReview = async (newReview) => {
-  const { data } = await axios.post(`${BASE_URL}/reviews`, newReview);
+  const { data } = await axios.post(`${API_URL}/reviews`, newReview);
   return data;
 };
 
 export const fetchAllReviews = async () => {
-  const { data } = await axios.get(`${BASE_URL}/reviews`);
+  const { data } = await axios.get(`${API_URL}/reviews`);
   return data;
 };
 
