@@ -51,10 +51,7 @@ function Login() {
   };
 
   return (
-    <div 
-      className="min-h-screen flex items-center justify-end bg-cover bg-center bg-no-repeat px-4 md:px-8 lg:px-12"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+   <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-8 mr-0 md:mr-8 lg:mr-16">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">ShopSphere</h1>
@@ -64,6 +61,15 @@ function Login() {
         <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
           Login to your account
         </h2>
+        <div className="mb-6 rounded-lg bg-gray-50 border border-gray-200 p-4 text-sm text-gray-700">
+  <p className="font-semibold mb-1">Demo Credentials</p>
+  <p>
+    Email: <span className="font-mono">test@example.com</span>
+  </p>
+  <p>
+    Password: <span className="font-mono">password</span>
+  </p>
+</div>
 
         {isLoading && <p className="text-center text-gray-500">Loading users...</p>}
         {isError && (
@@ -71,6 +77,7 @@ function Login() {
         )}
 
         {!isLoading && !isError && (
+          
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
               <Label htmlFor="email" className="text-gray-700 font-medium mb-2 block">
